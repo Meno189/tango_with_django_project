@@ -28,7 +28,6 @@ def index(request):
     context_dict['pages'] = page_list
     
     visitor_cookie_handler(request)
-    context_dict['visits'] = request.session['visits']
 
     response = render(request, 'rango/index.html', context=context_dict)
     return response
@@ -41,6 +40,9 @@ def about(request):
     if request.session.test_cookie_worked():
         print("TEST COOKIE WORKED!")
         request.session.delete_test_cookie()
+    
+    visitor_cookie_handler(request)
+    context_dict['visits'] = request.session['visits']
     
     # Return a rendered response to send to the client.
     # We make use of the shortcut function to make our lives easier.

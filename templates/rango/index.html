@@ -9,7 +9,7 @@
 			{% if user.is_authenticated %}
 				howdy {{ user.username }}!
 			{% else %}
-				hey there partner!
+				hey there partner! <br/><p>Visits: {{ visits }}</p>
 			{% endif %}
 			<strong>{{ boldmessage }}</strong><br />
 		</div>
